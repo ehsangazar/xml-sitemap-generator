@@ -19,7 +19,7 @@ npm run start -- --uri="https://gazar.dev"
 #### Method 2: As an NPM
 
 ```
-import XMLSiteMapGenerator from 'xml-sitemap-generator'
+import XMLSiteMapGenerator from '@ehsangazar/xml-sitemap-generator'
 
 const main = async () => {
   await XMLSiteMapGenerator({
