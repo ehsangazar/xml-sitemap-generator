@@ -6,7 +6,12 @@ interface IXMLSiteMapGenerator {
   whereToSave?: string;
 }
 
-const generateXMLSiteMap = (links: string[]) => {
+interface ISiteMapLinks {
+  title: string;
+  url?: string;
+}
+
+const generateXMLSiteMap = (links: ISiteMapLinks[]) => {
   const XML = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${links.map((link: any) => {
@@ -37,16 +42,17 @@ const writeXMLSiteMap = (XML: string, whereToSave: string) => {
   });
 };
 
+
 const XMLSiteMapGenerator = async ({
   uri,
   whereToSave = "./sitemap.xml",
 }: IXMLSiteMapGenerator) => {
-  const SITE_MAP_LINKS = [];
+  const siteMapLinks:ISiteMapLinks[] = [];
   const crawler = new CheerioCrawler({
     async requestHandler({ request, $, enqueueLinks, log }) {
       const title = $("title").text();
       log.info(`Title of ${request.loadedUrl} is '${title}'`);
-      SITE_MAP_LINKS.push({ title, url: request.loadedUrl });
+      siteMapLinks.push({ title, url: request.loadedUrl });
       await enqueueLinks();
     },
 
@@ -55,7 +61,7 @@ const XMLSiteMapGenerator = async ({
   });
 
   await crawler.run([uri]);
-  const xml = await generateXMLSiteMap(SITE_MAP_LINKS);
+  const xml = await generateXMLSiteMap(siteMapLinks);
   await writeXMLSiteMap(xml, whereToSave);
 };
 

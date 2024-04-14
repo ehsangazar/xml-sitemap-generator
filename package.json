@@ -1,6 +1,6 @@
 {
   "name": "xml-sitemap-generator",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "Easily create XML sitemaps for your website.",
   "homepage": "https://github.com/ehsangazar/xml-sitemap-generator",
   "author": "Ehsan Gazar",
@@ -9,28 +9,24 @@
     "xml"
   ],
   "type": "module",
-  "main": "./src/generator.ts",
-  "types": "./src/generator.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+      "dist"
+  ],
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node --loader ts-node/esm ./generator.ts",
-    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "npx tsx ./main.ts",
+    "build": "tsup",
     "lint": "eslint src",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
-    "async": "3.2.5",
     "cheerio": "1.0.0-rc.12",
-    "cp-file": "10.0.0",
-    "crawlee": "^3.9.1",
-    "crypto-random-string": "5.0.0",
-    "date-fns": "3.6.0",
-    "lodash": "4.17.21",
-    "mitt": "3.0.1",
-    "normalize-url": "8.0.1",
-    "simplecrawler": "1.1.9",
-    "url-parse": "1.5.10"
+    "crawlee": "^3.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
@@ -43,19 +39,8 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.5"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json",
-      "node"
-    ]
   },
   "license": "MIT",
   "repository": {

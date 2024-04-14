@@ -23,11 +23,11 @@ npm install --save-dev @ehsangazar/xml-sitemap-generator
 ```
 
 ```
-import XMLSiteMapGenerator from '@ehsangazar/xml-sitemap-generator'
+import XMLSiteMapGenerator from "xml-sitemap-generator";
 
 const main = async () => {
   await XMLSiteMapGenerator({
-    uri,
+    uri:"https://gazar.dev",
     whereToSave: "./sitemap.xml",
   });
 };

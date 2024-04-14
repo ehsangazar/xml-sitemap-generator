@@ -1,6 +1,6 @@
 // generateSitemap.js
 console.log("Generating sitemap.xml...");
-import XMLSiteMapGenerator from "./src/index";
+import XMLSiteMapGenerator from "xml-sitemap-generator";
 
 const args = process.argv.slice(2);
 

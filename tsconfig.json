@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-      "module": "ESNext",
-      "moduleResolution": "Node",
-      "declaration": true,
-  },
-  "ts-node": {
-      "esm": true
+    "outDir": "./dist",  
+    "target": "es2016",  
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
   }
 }
