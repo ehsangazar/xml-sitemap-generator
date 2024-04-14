@@ -1,5 +1,5 @@
 {
-  "name": "xml-sitemap-generator",
+  "name": "@ehsangazar/xml-sitemap-generator",
   "version": "0.0.0-semantically-released",
   "description": "Easily create XML sitemaps for your website.",
   "homepage": "https://github.com/ehsangazar/xml-sitemap-generator",
@@ -55,5 +55,12 @@
       "node"
     ]
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehsangazar/xml-sitemap-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ehsangazar/xml-sitemap-generator/issues"
+  }
 }
